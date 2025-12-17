@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="PlaygroundApi/PlaygroundApi.csproj" />
+  <Project Path="PlaygroundApp.AppHost/PlaygroundApp.AppHost.csproj" />
+  <Project Path="PlaygroundApp.ServiceDefaults/PlaygroundApp.ServiceDefaults.csproj" />
+</Solution>
