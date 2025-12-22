@@ -12,6 +12,11 @@ builder.AddProject<Projects.PlaygroundApi>("api")
         Url = "/api-docs",
         DisplayText = "Redoc",
     })
+    .WithUrlForEndpoint("https", _ => new ResourceUrlAnnotation
+    {
+        Url = "/about",
+        DisplayText = "About",
+    })
     .WithUrlForEndpoint("http", u => u.DisplayLocation = UrlDisplayLocation.DetailsOnly);
 
 await builder.Build().RunAsync();
