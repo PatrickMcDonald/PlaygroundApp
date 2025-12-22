@@ -14,7 +14,7 @@
     <PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="1.14.0" />
     <!-- API -->
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
-    <PackageVersion Include="Scalar.AspNetCore" Version="2.11.7" />
-    <PackageVersion Include="Swashbuckle.AspNetCore.ReDoc" Version="10.0.1" />
+    <PackageVersion Include="Scalar.AspNetCore" Version="2.11.9" />
+    <PackageVersion Include="Swashbuckle.AspNetCore.ReDoc" Version="10.1.0" />
   </ItemGroup>
 </Project>
