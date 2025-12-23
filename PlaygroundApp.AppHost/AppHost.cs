@@ -1,6 +1,6 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-builder.AddProject<Projects.PlaygroundApi>("api")
+var playgroundApi = builder.AddProject<Projects.PlaygroundApi>("api")
     .WithUrlForEndpoint("https", u => u.DisplayLocation = UrlDisplayLocation.DetailsOnly)
     .WithUrlForEndpoint("https", _ => new ResourceUrlAnnotation
     {
@@ -18,5 +18,9 @@ builder.AddProject<Projects.PlaygroundApi>("api")
         DisplayText = "About",
     })
     .WithUrlForEndpoint("http", u => u.DisplayLocation = UrlDisplayLocation.DetailsOnly);
+
+var frontend = builder.AddViteApp("frontend", "../frontend/react-playground")
+    .WithReference(playgroundApi)
+    .WaitFor(playgroundApi);
 
 await builder.Build().RunAsync();
