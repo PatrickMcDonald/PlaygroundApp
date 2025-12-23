@@ -1,9 +1,10 @@
 ﻿namespace PlaygroundApi.Models;
 
 public record AboutResult(
+    string Environment,
     string Application,
     string Version,
-    string Description,
     string DotnetVersion,
+    TimeSpan ProcessUptime,
     OSVersionInfo OSVersion,
     OrderedDictionary<string, object?> Services);

@@ -1,13 +1,11 @@
 ﻿namespace PlaygroundApi.Controllers;
 
 [ApiExplorerSettings(IgnoreApi = true)]
-[ApiController]
-[Route("about")]
-public class AboutController : ControllerBase
+public class AboutController(IHostEnvironment env) : ApiController<AboutController>
 {
     [HttpGet]
     public Ok<AboutResult> Get()
     {
-        return TypedResults.Ok(AboutResult.Create());
+        return TypedResults.Ok(AboutResult.Create(env));
     }
 }

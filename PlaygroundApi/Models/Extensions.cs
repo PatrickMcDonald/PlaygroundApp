@@ -4,13 +4,14 @@ public static class Extensions
 {
     extension(AboutResult)
     {
-        public static AboutResult Create()
+        public static AboutResult Create(IHostEnvironment env)
         {
             return new AboutResult(
-                Application: "Playground API",
-                Version: "1.0.0",
-                Description: "This is a sample API for demonstration purposes.",
+                Environment: env.EnvironmentName,
+                Application: env.ApplicationName,
+                Version: System.Reflection.Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "",
                 DotnetVersion: System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription,
+                ProcessUptime: TimeSpan.FromMilliseconds(Environment.TickCount64),
                 OSVersion: OSVersionInfo.FromEnvironment(),
                 []);
         }
@@ -25,10 +26,7 @@ public static class Extensions
                 Platform: Environment.OSVersion.Platform.ToString(),
                 Version: Environment.OSVersion.Version.ToString(),
                 ServicePack: Environment.OSVersion.ServicePack,
-                MajorVersion: Environment.OSVersion.Version.Major,
-                MinorVersion: Environment.OSVersion.Version.Minor,
-                BuildNumber: Environment.OSVersion.Version.Build,
-                RevisionNumber: Environment.OSVersion.Version.Revision);
+                ProcessArchitecture: System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture.ToString());
         }
     }
 }
