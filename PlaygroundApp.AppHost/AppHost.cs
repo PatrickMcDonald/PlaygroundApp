@@ -23,6 +23,7 @@ var playgroundApi = builder.AddProject<Projects.PlaygroundApi>("api")
 var frontend = builder.AddViteApp("frontend", "../frontend/react-playground")
     .WithHttpsEndpoint(env: "PORT")
     .WithHttpsDeveloperCertificate()
+    .WithEnvironment("VITE_API_URL", playgroundApi.GetEndpoint("https"))
     .WithReference(playgroundApi)
     .WaitFor(playgroundApi);
 #pragma warning restore ASPIRECERTIFICATES001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
