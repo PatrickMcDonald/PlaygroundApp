@@ -28,4 +28,25 @@ var frontend = builder.AddViteApp("frontend", "../frontend/react-playground")
     .WaitFor(playgroundApi);
 #pragma warning restore ASPIRECERTIFICATES001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 
+#pragma warning disable ASPIRECERTIFICATES001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+var gateway = builder.AddYarp("gateway")
+    .WithConfiguration(yarp =>
+    {
+        // Use HTTP endpoint for internal communication
+        yarp.AddRoute(playgroundApi.GetEndpoint("http"));
+    })
+    .WithUrlForEndpoint("https", u =>
+    {
+        u.Url = "/about";
+        u.DisplayText = "About (https)";
+    })
+    .WithUrlForEndpoint("http", u =>
+    {
+        u.Url = "/about";
+        u.DisplayText = "About (http)";
+        u.DisplayLocation = UrlDisplayLocation.DetailsOnly;
+    })
+    .WithHttpsDeveloperCertificate();
+#pragma warning restore ASPIRECERTIFICATES001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+
 await builder.Build().RunAsync();

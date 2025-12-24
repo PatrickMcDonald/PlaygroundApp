@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Packages.props" />
+  </Folder>
   <Project Path="PlaygroundApi/PlaygroundApi.csproj" />
   <Project Path="PlaygroundApp.AppHost/PlaygroundApp.AppHost.csproj" />
   <Project Path="PlaygroundApp.ServiceDefaults/PlaygroundApp.ServiceDefaults.csproj" />
