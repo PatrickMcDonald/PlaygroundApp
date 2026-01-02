@@ -1,7 +1,7 @@
 ﻿namespace PlaygroundApi.Controllers;
 
-[ApiController]
 [Route("[controller]")]
+[ApiController]
 public class ApiController<TController> : ControllerBase
     where TController : ApiController<TController>
 {

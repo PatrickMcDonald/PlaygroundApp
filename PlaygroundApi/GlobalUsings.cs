@@ -2,3 +2,4 @@
 global using Microsoft.AspNetCore.Mvc;
 
 global using PlaygroundApi.Models;
+global using PlaygroundApi.Services;

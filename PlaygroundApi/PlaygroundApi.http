@@ -1,6 +1,28 @@
+@key = C
+
 @PlaygroundApi_HostAddress = http://localhost:5105
 
-GET {{PlaygroundApi_HostAddress}}/weatherforecast/
+GET {{PlaygroundApi_HostAddress}}/scales/{{key}}
+Accept: application/json
+
+###
+
+GET {{PlaygroundApi_HostAddress}}/chords/{{key}}/Major
+Accept: application/json
+
+###
+
+GET {{PlaygroundApi_HostAddress}}/chords/{{key}}/Minor
+Accept: application/json
+
+###
+
+GET {{PlaygroundApi_HostAddress}}/chords/{{key}}/7
+Accept: application/json
+
+###
+
+GET {{PlaygroundApi_HostAddress}}/chords/{{key}}/maj7
 Accept: application/json
 
 ###
